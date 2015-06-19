@@ -1,0 +1,76 @@
+package com.clc.arreader.beans;
+
+public class ARTitleOutputBean {
+
+	private String iBook;
+	private String vchEAN;
+	private String iQuizID;
+	private String iReadingLevel;
+	private String vchInterestLevel;
+	private String iARPoints;
+
+	ARTitleOutputBean()
+	{
+		System.out.println("Default ARTitleOutputBean created.");
+	}
+	
+	ARTitleOutputBean(String iBook, String vchEAN, String iQuizID, String iReadingLevel, String vchInterestLevel, String iARPoints)
+	{
+		this.iBook = iBook;
+		this.vchEAN = vchEAN;
+		this.iQuizID = iQuizID;
+		this.iReadingLevel = iReadingLevel;
+		this.vchInterestLevel = vchInterestLevel;
+		this.iARPoints =  iARPoints;
+		
+		System.out.println("ARTitleOutputBean created with data.");
+	}
+
+	public String getiBook() {
+		return iBook;
+	}
+
+	public void setiBook(String iBook) {
+		this.iBook = iBook;
+	}
+
+	public String getVchEAN() {
+		return vchEAN;
+	}
+
+	public void setVchEAN(String vchEAN) {
+		this.vchEAN = vchEAN;
+	}
+
+	public String getiQuizID() {
+		return iQuizID;
+	}
+
+	public void setiQuizID(String iQuizID) {
+		this.iQuizID = iQuizID;
+	}
+
+	public String getiReadingLevel() {
+		return iReadingLevel;
+	}
+
+	public void setiReadingLevel(String iReadingLevel) {
+		this.iReadingLevel = iReadingLevel;
+	}
+
+	public String getVchInterestLevel() {
+		return vchInterestLevel;
+	}
+
+	public void setVchInterestLevel(String vchInterestLevel) {
+		this.vchInterestLevel = vchInterestLevel;
+	}
+
+	public String getiARPoints() {
+		return iARPoints;
+	}
+
+	public void setiARPoints(String iARPoints) {
+		this.iARPoints = iARPoints;
+	}
+}

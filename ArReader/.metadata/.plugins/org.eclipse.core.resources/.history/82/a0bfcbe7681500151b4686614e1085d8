@@ -1,0 +1,72 @@
+package com.clc.arreader.main;
+
+import java.io.IOException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import com.clc.arreader.beans.ARTitleOutputBean;
+import com.clc.arreader.fileprocessors.ArTitlesReader;
+import com.clc.arreader.util.UniversalNamespaceCache;
+
+public class ArReaderDriver {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+
+	String iBook = "";
+	String iEan = "";
+	String iQuiz = "";
+	String iRead = "";
+	String iInterest = "";
+	String iPoints = "";
+	
+	ArTitlesReader arTitleReader = new ArTitlesReader();
+	long numberOfDataRows = (long) arTitleReader.getNumberOfDataRows(arTitleReader);
+	System.out.println("numberOfDataRows: " + numberOfDataRows);
+		
+	for(long index=1; index <= numberOfDataRows ; index++)
+    {
+    	boolean vchQuizTypeRp = arTitleReader.getvchQuizTypeRp(arTitleReader, index);
+    	
+		if(vchQuizTypeRp)
+    	{
+			iBook = arTitleReader.getIbook(arTitleReader, index);
+			iQuiz = arTitleReader.getIquizId(arTitleReader, index);
+			iRead = arTitleReader.getIReadingLevel(arTitleReader, index);
+			iInterest = arTitleReader.getVchInterestLevel(arTitleReader, index);
+			iPoints = arTitleReader.getIarPoints(arTitleReader, index);
+			
+			System.out.println("***************************");
+			System.out.println("iBook - "+ iBook);	
+			System.out.println("iQuiz - "+ iQuiz);
+			System.out.println("iRead - "+ iRead);
+			System.out.println("iInterest - "+ iInterest);
+			System.out.println("iPoints - "+ iPoints);
+            System.out.println("***************************");
+            
+            //Read AR_Titles_Isbn files with iBook filter on 978 starts with for vchEan and return a count of how many rows exist
+            //loop through those rows and create final output beans
+            
+            for(long index=1; index <= numberOfDataRows ; index++)
+            {
+            	ARTitleOutputBean arTItleOutput = new ARTitleOutputBean(iBook, iEan, iQuiz, iRead, iInterest, iPoints);
+            }
+            
+            
+    	}
+
+    } 
+	}
+}

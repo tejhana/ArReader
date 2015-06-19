@@ -1,0 +1,134 @@
+package com.clc.arreader.fileprocessors;
+
+import java.io.IOException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import com.clc.arreader.util.UniversalNamespaceCache;
+
+public class ArTitilesIsbnReader {
+	
+	/**
+	 * ArTitlesReaderIsbn - R. Ryffel 6/15/2015
+	 * 
+	 * This object reads in a XML file and uses Xpath to parse it and extract the iBookID and vchEAN associated with it.
+	 * We are only concerned with ROWS which have vchEAN=’978….’ (values starting with 978).
+	 * Ensure the XML Namespace Prefixes do not contain a # symbol. This causes an error with the UniversalNamespaceCache in the Util package. Remove the "#" from the xml file
+	 * prior to running the application. 
+	 */
+	private DocumentBuilderFactory factory;
+	private  DocumentBuilder builder;
+	private Document doc;
+	private XPathFactory xpathFactory;
+	private XPath xpath;
+	private boolean vchQuizTypeRp;
+	
+	public static final String AR_TITLES_XML = "sampleTitlesXML.xml";
+	
+	public ArTitilesIsbnReader()
+	{
+        factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
+        
+        doc = null;
+        try {
+            builder = factory.newDocumentBuilder();
+            doc = builder.parse(AR_TITLES_XML);
+ 
+            // Create XPathFactory object
+            xpathFactory = XPathFactory.newInstance();
+ 
+            // Create XPath object
+            xpath = xpathFactory.newXPath();
+            
+            xpath.setNamespaceContext(new UniversalNamespaceCache(doc, false));
+           
+            vchQuizTypeRp = false;
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+        	e.printStackTrace();
+        }
+	}
+    public double getNumberOfDataRows(ArTitilesIsbnReader reader)
+    {
+    	double rowCount = 0;
+    	String expression = "count(//xml/rs:data/z:row)";
+        Document doc = reader.getDoc();
+        XPath xpath = reader.getXpath();
+        try {
+            XPathExpression expr =
+                xpath.compile(expression);
+            rowCount = (Double) expr.evaluate(doc, XPathConstants.NUMBER);
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        System.out.println("rowCount: " + rowCount);
+        return rowCount;
+    }
+    
+    public static Boolean getVchEan978(ArTitilesIsbnReader reader, long index) {
+    	boolean vchEan978 = false;
+        long lIndex = (long)index;
+        String expression = "count(//xml/rs:data/z:row["+lIndex+"][starts-with(@vchEAN, '978')]) >0";
+        Document doc = reader.getDoc();
+        XPath xpath = reader.getXpath();
+        
+        try {
+
+            XPathExpression expr =
+                    xpath.compile(expression);
+            vchEan978 = (Boolean) expr.evaluate(doc, XPathConstants.BOOLEAN);
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        
+        System.out.println("vchEan978: " + vchEan978);
+        return vchEan978;
+    }
+	public DocumentBuilderFactory getFactory() {
+		return factory;
+	}
+	public void setFactory(DocumentBuilderFactory factory) {
+		this.factory = factory;
+	}
+	public DocumentBuilder getBuilder() {
+		return builder;
+	}
+	public void setBuilder(DocumentBuilder builder) {
+		this.builder = builder;
+	}
+	public Document getDoc() {
+		return doc;
+	}
+	public void setDoc(Document doc) {
+		this.doc = doc;
+	}
+	public XPathFactory getXpathFactory() {
+		return xpathFactory;
+	}
+	public void setXpathFactory(XPathFactory xpathFactory) {
+		this.xpathFactory = xpathFactory;
+	}
+	public XPath getXpath() {
+		return xpath;
+	}
+	public void setXpath(XPath xpath) {
+		this.xpath = xpath;
+	}
+	public boolean isVchQuizTypeRp() {
+		return vchQuizTypeRp;
+	}
+	public void setVchQuizTypeRp(boolean vchQuizTypeRp) {
+		this.vchQuizTypeRp = vchQuizTypeRp;
+	}
+    
+}

@@ -1,0 +1,61 @@
+package com.clc.arreader.fileprocessors;
+
+import java.io.IOException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import com.clc.arreader.util.UniversalNamespaceCache;
+
+public class ArTitilesIsbnReader extends ArReader {
+	
+	/**
+	 * ArTitlesReaderIsbn - R. Ryffel 6/15/2015
+	 * 
+	 * This object reads in a XML file and uses Xpath to parse it and extract the iBookID and vchEAN associated with it.
+	 * We are only concerned with ROWS which have vchEAN=’978….’ (values starting with 978).
+	 * Ensure the XML Namespace Prefixes do not contain a # symbol. This causes an error with the UniversalNamespaceCache in the Util package. Remove the "#" from the xml file
+	 * prior to running the application. 
+	 */
+	
+	public static final String AR_TITLES_ISBN_XML = "sampleXml.xml";
+	//public static final String AR_TITLES_ISBN_XML = "ar_titles_isbn.xml";
+	
+	public ArTitilesIsbnReader()
+	{
+		super(AR_TITLES_ISBN_XML);
+
+	}
+    
+    public NodeList getVchEan978(ArTitilesIsbnReader reader, String iBookId) {
+    	NodeList nodes = null;
+        String expression = "//xml/rs:data/z:row[@iBookID="+iBookId+"][starts-with(@vchEAN, '978')]";
+        Document doc = reader.getDoc();
+        XPath xpath = reader.getXpath();
+        
+        try {
+
+            XPathExpression expr =
+                    xpath.compile(expression);
+            Object result = expr.evaluate(doc, XPathConstants.NODESET);
+            nodes = (NodeList) result;          
+            
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        
+        System.out.println(nodes.getLength());
+        return nodes;
+    }
+
+}

@@ -1,0 +1,196 @@
+package com.clc.arreader.fileprocessors;
+
+import java.io.IOException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import com.clc.arreader.util.UniversalNamespaceCache;
+
+public class ArTitlesReader {
+
+	/**
+	 * ArTitlesReader - R. Ryffel 6/15/2015
+	 * 
+	 * This object reads in a XML file and uses Xpath to parse it and extract the iBookID, iQuizID, iReadingLevel, vchInterestLevel, &iARPoints associated with it. 
+	 * We are only concerned with ROWs which have a vchQuizType='RP' from this file. 
+	 * From each row, we are only interested in the iQuizID, iReadingLevel, vchInterestLevel, and iARPoints attributes as these will be part of the output to the process.
+	 * Ensure the XML Namespace Prefixes do not contain a # symbol. This causes an error with the UniversalNamespaceCache in the Util package. Remove the "#" from the xml file
+	 * prior to running the application. 
+	 */
+	
+	public static void main(String[] args) {
+
+		        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		        factory.setNamespaceAware(true);
+		        DocumentBuilder builder;
+		        Document doc = null;
+		        try {
+		            builder = factory.newDocumentBuilder();
+		            doc = builder.parse("sampleTitlesXml.xml");
+		 
+		            // Create XPathFactory object
+		            XPathFactory xpathFactory = XPathFactory.newInstance();
+		 
+		            // Create XPath object
+		            XPath xpath = xpathFactory.newXPath();
+		            
+		            xpath.setNamespaceContext(new UniversalNamespaceCache(doc, false));
+		            		            
+		            double rowCount = getRowCount(doc, xpath);
+		            
+		            boolean vchQuizTypeRp = false;
+		            
+		            for(double index=1; index <= rowCount ; index++)
+		            {
+		            	vchQuizTypeRp = getvchQuizTypeRp(doc, xpath, index);
+		            	
+						if(vchQuizTypeRp)
+		            	{
+							System.out.println("***************************");
+							String iBookId = getIbook(doc, xpath, index);
+				            String iQuizID = getIquizId(doc, xpath, index);
+				            String iReadingLevel = getIReadingLevel(doc, xpath, index);
+				            String vchInterestLevel = getVchInterestLevel(doc, xpath, index);
+				            String iARPoints = getIarPoints(doc, xpath, index);
+		            	}
+
+		            } 
+		          
+		 
+		        } catch (ParserConfigurationException | SAXException | IOException e) {
+		            e.printStackTrace();
+		        }
+		 
+	}
+
+	private static Double getRowCount(Document doc, XPath xpath) {
+        double rowCount = 0;
+        String expression = "count(//xml/rs:data/z:row)";
+
+      
+        try {
+            XPathExpression expr =
+                xpath.compile(expression);
+            rowCount = (Double) expr.evaluate(doc, XPathConstants.NUMBER);
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        System.out.println("rowCount: " + rowCount);
+        return rowCount;
+    }
+	
+    private static boolean getvchQuizTypeRp(Document doc, XPath xpath,
+			double index) {
+
+    	long lIndex = (long)index;
+        boolean quizTypeRp = false;
+        String expression = "//xml/rs:data/z:row["+lIndex+"]/@vchQuizType='RP'";
+
+      
+        try {
+            XPathExpression expr =
+                xpath.compile(expression);
+            quizTypeRp = (Boolean) expr.evaluate(doc, XPathConstants.BOOLEAN);
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        System.out.println("quizTypeRp: " + quizTypeRp);
+		return quizTypeRp;
+	}
+    
+    private static String getIbook(Document doc, XPath xpath, double index) {
+        String iBook = null;
+        long lIndex = (long)index;
+        String expression = "//xml/rs:data/z:row["+lIndex+"]/@iBookID";
+
+      
+        try {
+            XPathExpression expr =
+                xpath.compile(expression);
+            iBook = (String) expr.evaluate(doc, XPathConstants.STRING);
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        System.out.println("iBookID: " + iBook);
+        return iBook;
+    }
+    
+    private static String getIquizId(Document doc, XPath xpath, double index) {
+        String iQuizID = null;
+        long lIndex = (long)index;
+        String expression = "//xml/rs:data/z:row["+lIndex+"]/@iQuizID";
+        try {
+
+            XPathExpression expr =
+                    xpath.compile(expression);
+            iQuizID = (String) expr.evaluate(doc, XPathConstants.STRING);
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        
+        System.out.println("iQuizID: " + iQuizID);
+        return iQuizID;
+    }
+    
+    private static String getIReadingLevel(Document doc, XPath xpath, double index) {
+        String iReadingLevel = null;
+        long lIndex = (long)index;
+        String expression = "//xml/rs:data/z:row["+lIndex+"]/@iReadingLevel";
+        try {
+
+            XPathExpression expr =
+                    xpath.compile(expression);
+            iReadingLevel = (String) expr.evaluate(doc, XPathConstants.STRING);
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        
+        System.out.println("iReadingLevel: " + iReadingLevel);
+        return iReadingLevel;
+    }
+    
+    private static String getVchInterestLevel(Document doc, XPath xpath, double index) {
+        String vchInterestLevel = null;
+        long lIndex = (long)index;
+        String expression = "//xml/rs:data/z:row["+lIndex+"]/@vchInterestLevel";
+        try {
+
+            XPathExpression expr =
+                    xpath.compile(expression);
+            vchInterestLevel = (String) expr.evaluate(doc, XPathConstants.STRING);
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        
+        System.out.println("vchInterestLevel: " + vchInterestLevel);
+        return vchInterestLevel;
+    }
+    
+    private static String getIarPoints(Document doc, XPath xpath, double index) {
+        String iARPoints = null;
+        long lIndex = (long)index;
+        String expression = "//xml/rs:data/z:row["+lIndex+"]/@iARPoints";
+        try {
+
+            XPathExpression expr =
+                    xpath.compile(expression);
+            iARPoints = (String) expr.evaluate(doc, XPathConstants.STRING);
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        
+        System.out.println("iARPoints: " + iARPoints);
+        return iARPoints;
+    }
+
+}

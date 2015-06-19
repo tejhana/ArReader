@@ -1,0 +1,5 @@
+package com.clc.arreader.util;
+
+public class FileUtility {
+
+}

@@ -1,0 +1,107 @@
+package com.clc.arreader.main;
+
+import java.io.IOException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import com.clc.arreader.util.UniversalNamespaceCache;
+
+public class ArReaderDriver {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+
+		        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		        factory.setNamespaceAware(true);
+		        DocumentBuilder builder;
+		        Document doc = null;
+		        try {
+		            builder = factory.newDocumentBuilder();
+		            doc = builder.parse("sampleXml.xml");
+		 
+		            // Create XPathFactory object
+		            XPathFactory xpathFactory = XPathFactory.newInstance();
+		 
+		            // Create XPath object
+		            XPath xpath = xpathFactory.newXPath();
+		            
+		            xpath.setNamespaceContext(new UniversalNamespaceCache(doc, false));
+		            		            
+		            double rowCount = getRowCount(doc, xpath);
+		            
+		            for(double index=0; index > rowCount ; index++)
+		            {
+						String iBookId = getIbook(doc, xpath, index );
+			            String vchEan = getVchEan(doc, xpath, index);
+		            } 
+		          
+		 
+		        } catch (ParserConfigurationException | SAXException | IOException e) {
+		            e.printStackTrace();
+		        }
+		 
+	}
+	
+    private static Double getRowCount(Document doc, XPath xpath) {
+        double rowCount = 0;
+        String expression = "count(//xml/rs:data/z:row)";
+
+      
+        try {
+            XPathExpression expr =
+                xpath.compile(expression);
+            rowCount = (Double) expr.evaluate(doc, XPathConstants.NUMBER);
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        System.out.println("rowCount: " + rowCount);
+        return rowCount;
+    }
+    
+    private static String getIbook(Document doc, XPath xpath, double index) {
+        String iBook = null;
+        String expression = "//xml/rs:data/z:row/@iBookID";
+
+      
+        try {
+            XPathExpression expr =
+                xpath.compile(expression);
+            iBook = (String) expr.evaluate(doc, XPathConstants.STRING);
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        System.out.println("iBookID: " + iBook);
+        return iBook;
+    }
+    
+    private static String getVchEan(Document doc, XPath xpath, double index) {
+        String vchEan = null;
+        String expression = "//xml/rs:data/z:row/@vchEAN";
+        try {
+
+            XPathExpression expr =
+                    xpath.compile(expression);
+            vchEan = (String) expr.evaluate(doc, XPathConstants.STRING);
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }
+        
+        System.out.println("vchEan: " + vchEan);
+        return vchEan;
+    }
+
+
+
+}

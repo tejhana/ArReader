@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilderFactory"/>
+<fullyQualifiedTypeName name="javax.xml.parsers.DocumentBuilder"/>
+<fullyQualifiedTypeName name="javax.xml.xpath.XPathFactory"/>
+<fullyQualifiedTypeName name="javax.xml.xpath.XPath"/>
+<fullyQualifiedTypeName name="javax.xml.parsers.ParserConfigurationException"/>
+<fullyQualifiedTypeName name="org.xml.sax.SAXException"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="javax.xml.xpath.XPathExpression"/>
+<fullyQualifiedTypeName name="javax.xml.xpath.XPathExpressionException"/>
+<fullyQualifiedTypeName name="javax.xml.xpath.XPathConstants"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="org.w3c.dom.Document"/>
+<fullyQualifiedTypeName name="org.w3c.dom.NamedNodeMap"/>
+<fullyQualifiedTypeName name="org.w3c.dom.Node"/>
+<fullyQualifiedTypeName name="javax.xml.XMLConstants"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="javax.xml.namespace.NamespaceContext"/>
+<fullyQualifiedTypeName name="com.clc.arreader.util.UniversalNamespaceCache"/>
+<fullyQualifiedTypeName name="com.clc.arreader.beans.ARTitleOutputBean"/>
+<fullyQualifiedTypeName name="com.clc.arreader.fileprocessors.ArTitlesReader"/>
+<fullyQualifiedTypeName name="org.w3c.dom.NodeList"/>
+<fullyQualifiedTypeName name="org.w3c.dom.Attr"/>
+<fullyQualifiedTypeName name="org.w3c.dom.Element"/>
+<fullyQualifiedTypeName name="java.nio.charset.Charset"/>
+<fullyQualifiedTypeName name="com.clc.arreader.util.FileUtility"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+</qualifiedTypeNameHistroy>

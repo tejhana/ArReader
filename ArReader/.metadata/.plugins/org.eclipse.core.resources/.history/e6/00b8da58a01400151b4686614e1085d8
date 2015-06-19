@@ -1,0 +1,65 @@
+package com.clc.arreader.beans;
+
+public class ARTitleOutputBean {
+
+	private String iBook;
+	
+	private String vchEAN;
+	private String iQuizID;
+	private String iReadingLevel;
+	private String vchInterestLevel;
+	private String iARPoints;
+
+	ARTitleOutputBean()
+	{
+		System.out.println("ARTitleOutputBean created.");
+	}
+
+	public String getiBook() {
+		return iBook;
+	}
+
+	public void setiBook(String iBook) {
+		this.iBook = iBook;
+	}
+
+	public String getVchEAN() {
+		return vchEAN;
+	}
+
+	public void setVchEAN(String vchEAN) {
+		this.vchEAN = vchEAN;
+	}
+
+	public String getiQuizID() {
+		return iQuizID;
+	}
+
+	public void setiQuizID(String iQuizID) {
+		this.iQuizID = iQuizID;
+	}
+
+	public String getiReadingLevel() {
+		return iReadingLevel;
+	}
+
+	public void setiReadingLevel(String iReadingLevel) {
+		this.iReadingLevel = iReadingLevel;
+	}
+
+	public String getVchInterestLevel() {
+		return vchInterestLevel;
+	}
+
+	public void setVchInterestLevel(String vchInterestLevel) {
+		this.vchInterestLevel = vchInterestLevel;
+	}
+
+	public String getiARPoints() {
+		return iARPoints;
+	}
+
+	public void setiARPoints(String iARPoints) {
+		this.iARPoints = iARPoints;
+	}
+}

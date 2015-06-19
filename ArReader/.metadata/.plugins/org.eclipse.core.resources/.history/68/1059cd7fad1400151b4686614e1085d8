@@ -1,0 +1,34 @@
+package com.clc.arreader.main;
+
+import java.io.IOException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import com.clc.arreader.beans.ARTitleOutputBean;
+import com.clc.arreader.fileprocessors.ArTitlesReader;
+import com.clc.arreader.util.UniversalNamespaceCache;
+
+public class ArReaderDriver {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+
+	ARTitleOutputBean arTitleOutput = new ARTitleOutputBean();
+	ArTitlesReader arTitleReader = new ArTitlesReader();
+	long numberOfDataRows = (long) arTitleReader.getNumberOfDataRows(arTitleReader);
+	System.out.println("numberOfDataRows: " + numberOfDataRows);
+		
+	}
+}

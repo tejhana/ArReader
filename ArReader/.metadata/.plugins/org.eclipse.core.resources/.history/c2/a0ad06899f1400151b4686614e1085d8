@@ -1,0 +1,5 @@
+package com.clc.arreader.beans;
+
+public class ARTitleOutputBean {
+
+}

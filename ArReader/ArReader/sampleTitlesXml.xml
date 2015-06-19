@@ -1,0 +1,473 @@
+<xml xmlns:s='uuid:BDC6E3F0-6DA3-11d1-A2A3-00AA00C14882'
+	xmlns:dt='uuid:C2F41010-65B3-11d1-A29F-00AA00C14882'
+	xmlns:rs='urn:schemas-microsoft-com:rowset'
+	xmlns:z='RowsetSchema'>
+<s:schema id='RowsetSchema'>
+	<s:elementType name='row' content='eltOnly'>
+		<s:attributeType name='iQuizID' rs:number='1' rs:writeunknown='true'>
+			<s:datatype dt:type='int' dt:maxLength='4' rs:precision='10' rs:fixedlength='true' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='iALSQuizNumber' rs:number='2' rs:writeunknown='true'>
+			<s:datatype dt:type='int' dt:maxLength='4' rs:precision='10' rs:fixedlength='true' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='iBookID' rs:number='3' rs:writeunknown='true'>
+			<s:datatype dt:type='int' dt:maxLength='4' rs:precision='10' rs:fixedlength='true' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='vchBookType' rs:number='4' rs:nullable='true' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='10'/>
+		</s:attributeType>
+		<s:attributeType name='vchQuizType' rs:number='5' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='2' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='vchQuizTypeDesc' rs:number='6' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='50' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='tiShowPointsInAR' rs:number='7' rs:writeunknown='true'>
+			<s:datatype dt:type='ui1' dt:maxLength='1' rs:precision='3' rs:fixedlength='true' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='tiAudioEnabled' rs:number='8' rs:writeunknown='true'>
+			<s:datatype dt:type='ui1' dt:maxLength='1' rs:precision='3' rs:fixedlength='true' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='tiAudioStatus' rs:number='9' rs:writeunknown='true'>
+			<s:datatype dt:type='ui1' dt:maxLength='1' rs:precision='3' rs:fixedlength='true' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='chTitlePrefix' rs:number='10' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='5' rs:fixedlength='true' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='vchBookTitle' rs:number='11' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='255' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='vchAuthorFirstName' rs:number='12' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='30' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='vchAuthorMiddleName' rs:number='13' rs:nullable='true' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='30'/>
+		</s:attributeType>
+		<s:attributeType name='vchAuthorLastName' rs:number='14' rs:nullable='true' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='30'/>
+		</s:attributeType>
+		<s:attributeType name='vchLanguageCode' rs:number='15' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='4' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='vchLanguage' rs:number='16' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='50' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='iFiction' rs:number='17' rs:writeunknown='true'>
+			<s:datatype dt:type='ui1' dt:maxLength='1' rs:precision='3' rs:fixedlength='true' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='vchFiction' rs:number='18' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='20' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='tiOutOfPrint' rs:number='19' rs:writeunknown='true'>
+			<s:datatype dt:type='ui1' dt:maxLength='1' rs:precision='3' rs:fixedlength='true' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='vchOutOfPrint' rs:number='20' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='20' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='iReadingLevel' rs:number='21' rs:writeunknown='true'>
+			<s:datatype dt:type='float' dt:maxLength='8' rs:precision='15' rs:fixedlength='true' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='vchInterestLevel' rs:number='22' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='10' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='iARPoints' rs:number='23' rs:writeunknown='true'>
+			<s:datatype dt:type='float' dt:maxLength='8' rs:precision='15' rs:fixedlength='true' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='flATOS' rs:number='24' rs:nullable='true' rs:writeunknown='true'>
+			<s:datatype dt:type='float' dt:maxLength='8' rs:precision='15' rs:fixedlength='true'/>
+		</s:attributeType>
+		<s:attributeType name='txBookSummary' rs:number='25' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='2147483647' rs:long='true' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='iWordCount' rs:number='26' rs:writeunknown='true'>
+			<s:datatype dt:type='int' dt:maxLength='4' rs:precision='10' rs:fixedlength='true' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='iNumberQuestions' rs:number='27' rs:writeunknown='true'>
+			<s:datatype dt:type='int' dt:maxLength='4' rs:precision='10' rs:fixedlength='true' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='iQuizStatus' rs:number='28' rs:writeunknown='true'>
+			<s:datatype dt:type='int' dt:maxLength='4' rs:precision='10' rs:fixedlength='true' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='dtOriginalApprovalDate' rs:number='29' rs:nullable='true' rs:writeunknown='true'>
+			<s:datatype dt:type='dateTime' rs:dbtype='timestamp' dt:maxLength='16' rs:scale='3' rs:precision='23' rs:fixedlength='true'/>
+		</s:attributeType>
+		<s:attributeType name='vchDifficultyLevel' rs:number='30' rs:nullable='true' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='30'/>
+		</s:attributeType>
+		<s:attributeType name='vchQuizISBN' rs:number='31' rs:nullable='true' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='25'/>
+		</s:attributeType>
+		<s:attributeType name='iContentID' rs:number='32' rs:writeunknown='true'>
+			<s:datatype dt:type='int' dt:maxLength='4' rs:precision='10' rs:fixedlength='true' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='tiRecordStatus' rs:number='33' rs:writeunknown='true'>
+			<s:datatype dt:type='ui1' dt:maxLength='1' rs:precision='3' rs:fixedlength='true' rs:maybenull='false'/>
+		</s:attributeType>
+		<s:attributeType name='vchBookTitleContrived' rs:number='34' rs:nullable='true' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='1024'/>
+		</s:attributeType>
+		<s:attributeType name='vchAuthorContrived' rs:number='35' rs:nullable='true' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='500'/>
+		</s:attributeType>
+		<s:attributeType name='vchCountry' rs:number='36' rs:nullable='true' rs:writeunknown='true'>
+			<s:datatype dt:type='string' rs:dbtype='str' dt:maxLength='10'/>
+		</s:attributeType>
+		<s:attributeType name='iSponsor' rs:number='37' rs:nullable='true' rs:writeunknown='true'>
+			<s:datatype dt:type='int' dt:maxLength='4' rs:precision='10' rs:fixedlength='true'/>
+		</s:attributeType>
+		<s:attributeType name='dtLastApprovalDate' rs:number='38' rs:nullable='true' rs:writeunknown='true'>
+			<s:datatype dt:type='dateTime' rs:dbtype='timestamp' dt:maxLength='16' rs:scale='3' rs:precision='23' rs:fixedlength='true'/>
+		</s:attributeType>
+		<s:extends type='rs:rowbase'/>
+	</s:elementType>
+</s:schema>
+<rs:data>
+	<z:row iQuizID='18636' iALSQuizNumber='1' iBookID='3093' vchBookType=' ' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Adam of the Road'
+		 vchAuthorFirstName='Elizabeth' vchAuthorMiddleName='Janet' vchAuthorLastName='Gray' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='6.5' vchInterestLevel='MG'
+		 iARPoints='9' flATOS='9' txBookSummary='This book describes the adventures of eleven-year-old Adam as he travels the open roads of thirteenth-century England searching for his missing father, a minstrel, and his stolen red spaniel, Nick. 
+
+'
+		 iWordCount='57357' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='1996-04-10T00:00:00' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='118636' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2000-02-24T00:00:00'/>
+	<z:row iQuizID='105958' iALSQuizNumber='1' iBookID='3093' vchBookType=' ' vchQuizType='AV' vchQuizTypeDesc='Vocabulary'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Adam of the Road'
+		 vchAuthorFirstName='Elizabeth' vchAuthorMiddleName='Janet' vchAuthorLastName='Gray' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='6.5' vchInterestLevel='MG'
+		 iARPoints='9' flATOS='9' txBookSummary='This book describes the adventures of eleven-year-old Adam as he travels the open roads of thirteenth-century England searching for his missing father, a minstrel, and his stolen red spaniel, Nick. 
+
+'
+		 iWordCount='57357' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='2003-02-25T16:10:41.653000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='205958' tiRecordStatus='1' vchCountry='US;CA' iSponsor='792'
+		 dtLastApprovalDate='2003-02-25T16:10:41.653000000'/>
+	<z:row iQuizID='44136' iALSQuizNumber='1' iBookID='3093' vchBookType=' ' vchQuizType='LS' vchQuizTypeDesc='Literacy Skills'
+		 tiShowPointsInAR='0' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Adam of the Road'
+		 vchAuthorFirstName='Elizabeth' vchAuthorMiddleName='Janet' vchAuthorLastName='Gray' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='6.5' vchInterestLevel='MG'
+		 iARPoints='9' flATOS='9' txBookSummary='This book describes the adventures of eleven-year-old Adam as he travels the open roads of thirteenth-century England searching for his missing father, a minstrel, and his stolen red spaniel, Nick. 
+
+'
+		 iWordCount='57357' iNumberQuestions='36' iQuizStatus='1' dtOriginalApprovalDate='1999-06-08T09:01:02.810000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='144136' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='1999-06-08T09:01:02.810000000'/>
+	<z:row iQuizID='83654' iALSQuizNumber='2' iBookID='3094' vchBookType=' ' vchQuizType='AV' vchQuizTypeDesc='Vocabulary'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='All-of-a-Kind Family'
+		 vchAuthorFirstName='Sydney' vchAuthorMiddleName='' vchAuthorLastName='Taylor' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4.9000000000000004'
+		 vchInterestLevel='MG' iARPoints='5' flATOS='5' txBookSummary='Five girls have simple but happy times, with parents rich in kindness but poor in money.'
+		 iWordCount='32006' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='2002-01-29T15:51:35.990000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='183654' tiRecordStatus='1' vchCountry='US;CA' iSponsor='792'
+		 dtLastApprovalDate='2002-01-29T15:51:35.990000000'/>
+	<z:row iQuizID='18637' iALSQuizNumber='2' iBookID='3094' vchBookType=' ' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='All-of-a-Kind Family'
+		 vchAuthorFirstName='Sydney' vchAuthorMiddleName='' vchAuthorLastName='Taylor' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4.9000000000000004'
+		 vchInterestLevel='MG' iARPoints='5' flATOS='5' txBookSummary='Five girls have simple but happy times, with parents rich in kindness but poor in money.'
+		 iWordCount='32006' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='1996-04-10T00:00:00' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='118637' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='1996-09-19T00:00:00'/>
+	<z:row iQuizID='50315' iALSQuizNumber='2' iBookID='3094' vchBookType=' ' vchQuizType='LS' vchQuizTypeDesc='Literacy Skills'
+		 tiShowPointsInAR='0' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='All-of-a-Kind Family'
+		 vchAuthorFirstName='Sydney' vchAuthorMiddleName='' vchAuthorLastName='Taylor' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4.9000000000000004'
+		 vchInterestLevel='MG' iARPoints='5' flATOS='5' txBookSummary='Five girls have simple but happy times, with parents rich in kindness but poor in money.'
+		 iWordCount='32006' iNumberQuestions='36' iQuizStatus='1' dtOriginalApprovalDate='2000-02-01T13:43:19.100000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='150315' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2000-02-01T13:43:19.100000000'/>
+	<z:row iQuizID='44137' iALSQuizNumber='3' iBookID='3095' vchBookType=' ' vchQuizType='LS' vchQuizTypeDesc='Literacy Skills'
+		 tiShowPointsInAR='0' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Amos Fortune, Free Man'
+		 vchAuthorFirstName='Elizabeth' vchAuthorMiddleName='' vchAuthorLastName='Yates' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='0' vchFiction='Non-fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='6.5' vchInterestLevel='MG'
+		 iARPoints='5' flATOS='5' txBookSummary='This biography details the life of an African prince who was captured by slave traders at age fifteen and brought to America.'
+		 iWordCount='32679' iNumberQuestions='36' iQuizStatus='1' dtOriginalApprovalDate='1999-07-06T08:14:39.100000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='144137' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2001-01-23T10:11:10.070000000'/>
+	<z:row iQuizID='83655' iALSQuizNumber='3' iBookID='3095' vchBookType=' ' vchQuizType='AV' vchQuizTypeDesc='Vocabulary'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Amos Fortune, Free Man'
+		 vchAuthorFirstName='Elizabeth' vchAuthorMiddleName='' vchAuthorLastName='Yates' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='0' vchFiction='Non-fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='6.5' vchInterestLevel='MG'
+		 iARPoints='5' flATOS='5' txBookSummary='This biography details the life of an African prince who was captured by slave traders at age fifteen and brought to America.'
+		 iWordCount='32679' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='2002-02-04T16:51:40.380000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='183655' tiRecordStatus='1' vchCountry='US;CA' iSponsor='792'
+		 dtLastApprovalDate='2008-09-26T13:27:19.883000000'/>
+	<z:row iQuizID='18638' iALSQuizNumber='3' iBookID='3095' vchBookType=' ' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='1' tiAudioStatus='1' chTitlePrefix='     ' vchBookTitle='Amos Fortune, Free Man'
+		 vchAuthorFirstName='Elizabeth' vchAuthorMiddleName='' vchAuthorLastName='Yates' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='0' vchFiction='Non-fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='6.5' vchInterestLevel='MG'
+		 iARPoints='5' flATOS='5' txBookSummary='This biography details the life of an African prince who was captured by slave traders at age fifteen and brought to America.'
+		 iWordCount='32679' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='1996-04-10T00:00:00' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='118638' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2008-09-29T07:53:18.600000000'/>
+	<z:row iQuizID='65046' iALSQuizNumber='4' iBookID='3096' vchBookType=' ' vchQuizType='LS' vchQuizTypeDesc='Literacy Skills'
+		 tiShowPointsInAR='0' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='And Now Miguel'
+		 vchAuthorFirstName='Joseph' vchAuthorMiddleName='' vchAuthorLastName='Krumgold' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4.7999999999999998'
+		 vchInterestLevel='MG' iARPoints='8' flATOS='8' txBookSummary='The secret wish of Miguel Chavez, to go to the mountains with the men of his family, comes true.'
+		 iWordCount='56043' iNumberQuestions='36' iQuizStatus='1' dtOriginalApprovalDate='2001-01-19T11:02:09.240000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='165046' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2001-01-19T11:02:09.240000000'/>
+	<z:row iQuizID='18639' iALSQuizNumber='4' iBookID='3096' vchBookType=' ' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='And Now Miguel'
+		 vchAuthorFirstName='Joseph' vchAuthorMiddleName='' vchAuthorLastName='Krumgold' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4.7999999999999998'
+		 vchInterestLevel='MG' iARPoints='8' flATOS='8' txBookSummary='The secret wish of Miguel Chavez, to go to the mountains with the men of his family, comes true.'
+		 iWordCount='56043' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='1996-04-10T00:00:00' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='118639' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='1996-04-10T00:00:00'/>
+	<z:row iQuizID='90188' iALSQuizNumber='4' iBookID='3096' vchBookType=' ' vchQuizType='AV' vchQuizTypeDesc='Vocabulary'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='And Now Miguel'
+		 vchAuthorFirstName='Joseph' vchAuthorMiddleName='' vchAuthorLastName='Krumgold' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4.7999999999999998'
+		 vchInterestLevel='MG' iARPoints='8' flATOS='8' txBookSummary='The secret wish of Miguel Chavez, to go to the mountains with the men of his family, comes true.'
+		 iWordCount='56043' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='2002-03-26T16:09:21.910000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='190188' tiRecordStatus='1' vchCountry='US;CA' iSponsor='792'
+		 dtLastApprovalDate='2002-03-26T16:09:21.910000000'/>
+	<z:row iQuizID='77751' iALSQuizNumber='5' iBookID='3097' vchBookType=' ' vchQuizType='LS' vchQuizTypeDesc='Literacy Skills'
+		 tiShowPointsInAR='0' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='&#x22;B&#x22; Is for Betsy'
+		 vchAuthorFirstName='Carolyn' vchAuthorMiddleName='' vchAuthorLastName='Haywood' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4.2999999999999998'
+		 vchInterestLevel='MG' iARPoints='2' flATOS='2' txBookSummary='Betsy experiences an interesting first year in school and looks forward to summer vacation at her grandfather&#x27;s farm.'
+		 iWordCount='16555' iNumberQuestions='36' iQuizStatus='1' dtOriginalApprovalDate='2001-08-09T08:06:19.130000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='177751' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2001-08-31T16:02:16.220000000'/>
+	<z:row iQuizID='88526' iALSQuizNumber='5' iBookID='3097' vchBookType=' ' vchQuizType='AV' vchQuizTypeDesc='Vocabulary'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='&#x22;B&#x22; Is for Betsy'
+		 vchAuthorFirstName='Carolyn' vchAuthorMiddleName='' vchAuthorLastName='Haywood' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4.2999999999999998'
+		 vchInterestLevel='MG' iARPoints='2' flATOS='2' txBookSummary='Betsy experiences an interesting first year in school and looks forward to summer vacation at her grandfather&#x27;s farm.'
+		 iWordCount='16555' iNumberQuestions='5' iQuizStatus='1' dtOriginalApprovalDate='2002-06-21T11:00:34.093000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='188526' tiRecordStatus='1' vchCountry='US;CA' iSponsor='792'
+		 dtLastApprovalDate='2002-06-21T11:00:34.093000000'/>
+	<z:row iQuizID='18640' iALSQuizNumber='5' iBookID='3097' vchBookType=' ' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='&#x22;B&#x22; Is for Betsy'
+		 vchAuthorFirstName='Carolyn' vchAuthorMiddleName='' vchAuthorLastName='Haywood' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4.2999999999999998'
+		 vchInterestLevel='MG' iARPoints='2' flATOS='2' txBookSummary='Betsy experiences an interesting first year in school and looks forward to summer vacation at her grandfather&#x27;s farm.'
+		 iWordCount='16555' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='1996-04-10T00:00:00' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='118640' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='1996-04-10T00:00:00'/>
+	<z:row iQuizID='76868' iALSQuizNumber='6' iBookID='54297' vchBookType='' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Bambi (Spanish)'
+		 vchAuthorFirstName='Felix' vchAuthorMiddleName='' vchAuthorLastName='Salten' vchLanguageCode='SP' vchLanguage='Spanish'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4.9000000000000004'
+		 vchInterestLevel='UG' iARPoints='6' flATOS='6' txBookSummary='Bambi aprende sobre la vida y las personas a medida que crece en su bello hogar natural.'
+		 iWordCount='40953' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='2001-08-10T18:50:19.290000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='176868' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2001-08-10T18:50:19.290000000'/>
+	<z:row iQuizID='83705' iALSQuizNumber='6' iBookID='3098' vchBookType=' ' vchQuizType='AV' vchQuizTypeDesc='Vocabulary'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Bambi: A Life in the Woods'
+		 vchAuthorFirstName='Felix' vchAuthorMiddleName='' vchAuthorLastName='Salten' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4.9000000000000004'
+		 vchInterestLevel='MG' iARPoints='6' flATOS='6' txBookSummary='Bambi learns much about life and about people as he grows into a beautiful stag.'
+		 iWordCount='40680' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='2002-02-06T15:13:37.680000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='183705' tiRecordStatus='1' vchCountry='US;CA' iSponsor='792'
+		 dtLastApprovalDate='2002-04-28T13:30:02.410000000'/>
+	<z:row iQuizID='66681' iALSQuizNumber='6' iBookID='3098' vchBookType=' ' vchQuizType='LS' vchQuizTypeDesc='Literacy Skills'
+		 tiShowPointsInAR='0' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Bambi: A Life in the Woods'
+		 vchAuthorFirstName='Felix' vchAuthorMiddleName='' vchAuthorLastName='Salten' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4.9000000000000004'
+		 vchInterestLevel='MG' iARPoints='6' flATOS='6' txBookSummary='Bambi learns much about life and about people as he grows into a beautiful stag.'
+		 iWordCount='40680' iNumberQuestions='36' iQuizStatus='1' dtOriginalApprovalDate='2001-01-26T11:34:48.330000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='166681' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2001-01-26T11:34:48.330000000'/>
+	<z:row iQuizID='18641' iALSQuizNumber='6' iBookID='3098' vchBookType=' ' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Bambi: A Life in the Woods'
+		 vchAuthorFirstName='Felix' vchAuthorMiddleName='' vchAuthorLastName='Salten' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4.9000000000000004'
+		 vchInterestLevel='MG' iARPoints='6' flATOS='6' txBookSummary='Bambi learns much about life and about people as he grows into a beautiful stag.'
+		 iWordCount='40680' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='1996-04-10T00:00:00' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='118641' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='1996-04-10T00:00:00'/>
+	<z:row iQuizID='77753' iALSQuizNumber='7' iBookID='3099' vchBookType=' ' vchQuizType='LS' vchQuizTypeDesc='Literacy Skills'
+		 tiShowPointsInAR='0' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Betsy-Tacy' vchAuthorFirstName='Maud'
+		 vchAuthorMiddleName='Hart' vchAuthorLastName='Lovelace' vchLanguageCode='EN' vchLanguage='English' iFiction='1'
+		 vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4' vchInterestLevel='MG' iARPoints='3'
+		 flATOS='3' txBookSummary='After Tacy Kelly moves into the house across the street from Betsy Ray, the five-year-olds become inseparable friends. 
+'
+		 iWordCount='18380' iNumberQuestions='36' iQuizStatus='1' dtOriginalApprovalDate='2001-09-20T10:34:46.040000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='177753' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2001-09-20T10:34:46.040000000'/>
+	<z:row iQuizID='18642' iALSQuizNumber='7' iBookID='3099' vchBookType=' ' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Betsy-Tacy' vchAuthorFirstName='Maud'
+		 vchAuthorMiddleName='Hart' vchAuthorLastName='Lovelace' vchLanguageCode='EN' vchLanguage='English' iFiction='1'
+		 vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4' vchInterestLevel='MG' iARPoints='3'
+		 flATOS='3' txBookSummary='After Tacy Kelly moves into the house across the street from Betsy Ray, the five-year-olds become inseparable friends. 
+'
+		 iWordCount='18380' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='1996-04-10T00:00:00' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='118642' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2001-11-15T13:31:38.460000000'/>
+	<z:row iQuizID='88531' iALSQuizNumber='7' iBookID='3099' vchBookType=' ' vchQuizType='AV' vchQuizTypeDesc='Vocabulary'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Betsy-Tacy' vchAuthorFirstName='Maud'
+		 vchAuthorMiddleName='Hart' vchAuthorLastName='Lovelace' vchLanguageCode='EN' vchLanguage='English' iFiction='1'
+		 vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4' vchInterestLevel='MG' iARPoints='3'
+		 flATOS='3' txBookSummary='After Tacy Kelly moves into the house across the street from Betsy Ray, the five-year-olds become inseparable friends. 
+'
+		 iWordCount='18380' iNumberQuestions='5' iQuizStatus='1' dtOriginalApprovalDate='2002-04-08T15:37:02.960000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='188531' tiRecordStatus='1' vchCountry='US;CA' iSponsor='792'
+		 dtLastApprovalDate='2002-04-08T15:37:02.960000000'/>
+	<z:row iQuizID='18643' iALSQuizNumber='8' iBookID='3100' vchBookType=' ' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Black Beauty (Unabridged)'
+		 vchAuthorFirstName='Anna' vchAuthorMiddleName='' vchAuthorLastName='Sewell' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='7.7000000000000002'
+		 vchInterestLevel='MG' iARPoints='11' flATOS='11' txBookSummary='A horse in nineteenth-century England recounts his experiences with both good and bad masters.'
+		 iWordCount='59635' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='1996-04-10T00:00:00' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='118643' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2001-07-25T13:37:31.860000000'/>
+	<z:row iQuizID='105885' iALSQuizNumber='8' iBookID='3100' vchBookType=' ' vchQuizType='AV' vchQuizTypeDesc='Vocabulary'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Black Beauty (Unabridged)'
+		 vchAuthorFirstName='Anna' vchAuthorMiddleName='' vchAuthorLastName='Sewell' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='7.7000000000000002'
+		 vchInterestLevel='MG' iARPoints='11' flATOS='11' txBookSummary='A horse in nineteenth-century England recounts his experiences with both good and bad masters.'
+		 iWordCount='59635' iNumberQuestions='5' iQuizStatus='1' dtOriginalApprovalDate='2003-02-21T11:01:22.233000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='205885' tiRecordStatus='1' vchCountry='US;CA' iSponsor='792'
+		 dtLastApprovalDate='2003-02-21T11:01:22.233000000'/>
+	<z:row iQuizID='47740' iALSQuizNumber='8' iBookID='3100' vchBookType=' ' vchQuizType='LS' vchQuizTypeDesc='Literacy Skills'
+		 tiShowPointsInAR='0' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Black Beauty (Unabridged)'
+		 vchAuthorFirstName='Anna' vchAuthorMiddleName='' vchAuthorLastName='Sewell' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='7.7000000000000002'
+		 vchInterestLevel='MG' iARPoints='11' flATOS='11' txBookSummary='A horse in nineteenth-century England recounts his experiences with both good and bad masters.'
+		 iWordCount='59635' iNumberQuestions='36' iQuizStatus='1' dtOriginalApprovalDate='2000-01-21T12:45:41.390000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='147740' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2000-01-21T12:45:41.390000000'/>
+	<z:row iQuizID='18644' iALSQuizNumber='9' iBookID='3101' vchBookType=' ' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Blue Willow' vchAuthorFirstName='Doris'
+		 vchAuthorMiddleName='' vchAuthorLastName='Gates' vchLanguageCode='EN' vchLanguage='English' iFiction='1' vchFiction='Fiction'
+		 tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='6.5' vchInterestLevel='MG' iARPoints='6' flATOS='6'
+		 txBookSummary='Janey and her family settle in a real home after spending years as migratory workers.' iWordCount='38350'
+		 iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='1996-02-29T00:00:00' vchDifficultyLevel=' ' vchQuizISBN=' '
+		 iContentID='118644' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2001-07-26T07:38:35.680000000'/>
+	<z:row iQuizID='105962' iALSQuizNumber='9' iBookID='3101' vchBookType=' ' vchQuizType='AV' vchQuizTypeDesc='Vocabulary'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Blue Willow' vchAuthorFirstName='Doris'
+		 vchAuthorMiddleName='' vchAuthorLastName='Gates' vchLanguageCode='EN' vchLanguage='English' iFiction='1' vchFiction='Fiction'
+		 tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='6.5' vchInterestLevel='MG' iARPoints='6' flATOS='6'
+		 txBookSummary='Janey and her family settle in a real home after spending years as migratory workers.' iWordCount='38350'
+		 iNumberQuestions='5' iQuizStatus='1' dtOriginalApprovalDate='2003-03-10T13:27:55.403000000' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='205962' tiRecordStatus='1' vchCountry='US;CA' iSponsor='792' dtLastApprovalDate='2003-03-10T13:27:55.403000000'/>
+	<z:row iQuizID='66685' iALSQuizNumber='9' iBookID='3101' vchBookType=' ' vchQuizType='LS' vchQuizTypeDesc='Literacy Skills'
+		 tiShowPointsInAR='0' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Blue Willow' vchAuthorFirstName='Doris'
+		 vchAuthorMiddleName='' vchAuthorLastName='Gates' vchLanguageCode='EN' vchLanguage='English' iFiction='1' vchFiction='Fiction'
+		 tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='6.5' vchInterestLevel='MG' iARPoints='6' flATOS='6'
+		 txBookSummary='Janey and her family settle in a real home after spending years as migratory workers.' iWordCount='38350'
+		 iNumberQuestions='36' iQuizStatus='1' dtOriginalApprovalDate='2000-11-30T13:30:33.520000000' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='166685' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2000-11-30T13:30:33.520000000'/>
+	<z:row iQuizID='41343' iALSQuizNumber='9' iBookID='11939' vchBookType=' ' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Sauce Azul' vchAuthorFirstName='Doris'
+		 vchAuthorMiddleName='' vchAuthorLastName='Gates' vchLanguageCode='SP' vchLanguage='Spanish' iFiction='1' vchFiction='Fiction'
+		 tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='6.5' vchInterestLevel='MG' iARPoints='6' flATOS='6'
+		 txBookSummary='Una historia muy realista sobre la vida de un niño cuyos padres son trabajadores migratorios.'
+		 iWordCount='38350' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='1997-10-16T00:00:00' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='141343' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='1997-10-16T00:00:00'/>
+	<z:row iQuizID='41344' iALSQuizNumber='10' iBookID='54' vchBookType=' ' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='Los  ' vchBookTitle='incursores' vchAuthorFirstName='Mary'
+		 vchAuthorMiddleName='' vchAuthorLastName='Norton' vchLanguageCode='SP' vchLanguage='Spanish' iFiction='1' vchFiction='Fiction'
+		 tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='5.2999999999999998' vchInterestLevel='MG' iARPoints='5'
+		 flATOS='5' txBookSummary='No muchos de los incursores se han ido pues viven en lugares tranquilos y apacibles. Esta es la historia de unas misteriosas personitas que viven en antiguas casas.'
+		 iWordCount='34792' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='1997-05-19T00:00:00' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='141344' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2002-06-21T11:14:16.623000000'/>
+	<z:row iQuizID='83686' iALSQuizNumber='10' iBookID='3102' vchBookType=' ' vchQuizType='AV' vchQuizTypeDesc='Vocabulary'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='The  ' vchBookTitle='Borrowers' vchAuthorFirstName='Mary'
+		 vchAuthorMiddleName='' vchAuthorLastName='Norton' vchLanguageCode='EN' vchLanguage='English' iFiction='1' vchFiction='Fiction'
+		 tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='5.2999999999999998' vchInterestLevel='MG' iARPoints='5'
+		 flATOS='5' txBookSummary='Miniature people who live in an old country house by borrowing things from the humans are forced to emigrate from their home under the clock. 
+'
+		 iWordCount='34792' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='2002-02-05T10:15:23.550000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='183686' tiRecordStatus='1' vchCountry='US;CA' iSponsor='792'
+		 dtLastApprovalDate='2002-06-21T13:12:43.373000000'/>
+	<z:row iQuizID='18645' iALSQuizNumber='10' iBookID='3102' vchBookType=' ' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='The  ' vchBookTitle='Borrowers' vchAuthorFirstName='Mary'
+		 vchAuthorMiddleName='' vchAuthorLastName='Norton' vchLanguageCode='EN' vchLanguage='English' iFiction='1' vchFiction='Fiction'
+		 tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='5.2999999999999998' vchInterestLevel='MG' iARPoints='5'
+		 flATOS='5' txBookSummary='Miniature people who live in an old country house by borrowing things from the humans are forced to emigrate from their home under the clock. 
+'
+		 iWordCount='34792' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='1996-04-10T00:00:00' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='118645' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2004-09-08T15:19:52.060000000'/>
+	<z:row iQuizID='11' iALSQuizNumber='10' iBookID='3102' vchBookType=' ' vchQuizType='LS' vchQuizTypeDesc='Literacy Skills'
+		 tiShowPointsInAR='0' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='The  ' vchBookTitle='Borrowers' vchAuthorFirstName='Mary'
+		 vchAuthorMiddleName='' vchAuthorLastName='Norton' vchLanguageCode='EN' vchLanguage='English' iFiction='1' vchFiction='Fiction'
+		 tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='5.2999999999999998' vchInterestLevel='MG' iARPoints='5'
+		 flATOS='5' txBookSummary='Miniature people who live in an old country house by borrowing things from the humans are forced to emigrate from their home under the clock. 
+'
+		 iWordCount='34792' iNumberQuestions='36' iQuizStatus='1' dtOriginalApprovalDate='1999-04-21T09:35:00' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='100011' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='1999-04-21T09:35:00'/>
+	<z:row iQuizID='86714' iALSQuizNumber='11' iBookID='3103' vchBookType=' ' vchQuizType='AV' vchQuizTypeDesc='Vocabulary'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Bridge to Terabithia'
+		 vchAuthorFirstName='Katherine' vchAuthorMiddleName='' vchAuthorLastName='Paterson' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4.5999999999999996'
+		 vchInterestLevel='MG' iARPoints='5' flATOS='5' txBookSummary='The life of a ten-year-old boy in rural Virginia expands when he becomes friends with a newcomer, who subsequently meets an untimely death trying to reach their hideaway, Terabithia, during a storm.'
+		 iWordCount='32888' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='2002-02-06T15:13:39.210000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='186714' tiRecordStatus='1' vchCountry='US;CA' iSponsor='792'
+		 dtLastApprovalDate='2008-10-03T11:05:55.720000000'/>
+	<z:row iQuizID='18646' iALSQuizNumber='11' iBookID='3103' vchBookType=' ' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Bridge to Terabithia'
+		 vchAuthorFirstName='Katherine' vchAuthorMiddleName='' vchAuthorLastName='Paterson' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4.5999999999999996'
+		 vchInterestLevel='MG' iARPoints='5' flATOS='5' txBookSummary='The life of a ten-year-old boy in rural Virginia expands when he becomes friends with a newcomer, who subsequently meets an untimely death trying to reach their hideaway, Terabithia, during a storm.'
+		 iWordCount='32888' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='1996-04-10T00:00:00' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='118646' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2007-02-26T16:32:26.273000000'/>
+	<z:row iQuizID='44138' iALSQuizNumber='11' iBookID='3103' vchBookType=' ' vchQuizType='LS' vchQuizTypeDesc='Literacy Skills'
+		 tiShowPointsInAR='0' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Bridge to Terabithia'
+		 vchAuthorFirstName='Katherine' vchAuthorMiddleName='' vchAuthorLastName='Paterson' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4.5999999999999996'
+		 vchInterestLevel='MG' iARPoints='5' flATOS='5' txBookSummary='The life of a ten-year-old boy in rural Virginia expands when he becomes friends with a newcomer, who subsequently meets an untimely death trying to reach their hideaway, Terabithia, during a storm.'
+		 iWordCount='32888' iNumberQuestions='36' iQuizStatus='1' dtOriginalApprovalDate='1999-05-25T14:29:44.980000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='144138' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='1999-05-25T14:29:44.980000000'/>
+	<z:row iQuizID='41345' iALSQuizNumber='11' iBookID='91' vchBookType=' ' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='Un   ' vchBookTitle='puente hasta Terabithia'
+		 vchAuthorFirstName='Katherine' vchAuthorMiddleName='' vchAuthorLastName='Paterson' vchLanguageCode='SP' vchLanguage='Spanish'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='4.5999999999999996'
+		 vchInterestLevel='UG' iARPoints='5' flATOS='5' txBookSummary='La vida de un niño de once años en la Virginia rural se ve drásticamente modificada después de hacerse amigo de una recién llegada, quien muere durante una tormenta.'
+		 iWordCount='32888' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='1997-05-19T00:00:00' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='141345' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2001-08-07T13:14:48.650000000'/>
+	<z:row iQuizID='83893' iALSQuizNumber='12' iBookID='3104' vchBookType=' ' vchQuizType='AV' vchQuizTypeDesc='Vocabulary'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Brighty of the Grand Canyon'
+		 vchAuthorFirstName='Marguerite' vchAuthorMiddleName='' vchAuthorLastName='Henry' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='5.5999999999999996'
+		 vchInterestLevel='MG' iARPoints='7' flATOS='7' txBookSummary='In this story, a lone burro creates friendships with a number of men in the Grand Canyon and helps to capture a murderer.'
+		 iWordCount='42328' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='2002-04-16T14:36:58.020000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='183893' tiRecordStatus='1' vchCountry='US;CA' iSponsor='792'
+		 dtLastApprovalDate='2002-04-16T14:36:58.020000000'/>
+	<z:row iQuizID='18647' iALSQuizNumber='12' iBookID='3104' vchBookType=' ' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Brighty of the Grand Canyon'
+		 vchAuthorFirstName='Marguerite' vchAuthorMiddleName='' vchAuthorLastName='Henry' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='5.5999999999999996'
+		 vchInterestLevel='MG' iARPoints='7' flATOS='7' txBookSummary='In this story, a lone burro creates friendships with a number of men in the Grand Canyon and helps to capture a murderer.'
+		 iWordCount='42328' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='1996-04-10T00:00:00' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='118647' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='1996-04-10T00:00:00'/>
+	<z:row iQuizID='66686' iALSQuizNumber='12' iBookID='3104' vchBookType=' ' vchQuizType='LS' vchQuizTypeDesc='Literacy Skills'
+		 tiShowPointsInAR='0' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Brighty of the Grand Canyon'
+		 vchAuthorFirstName='Marguerite' vchAuthorMiddleName='' vchAuthorLastName='Henry' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='5.5999999999999996'
+		 vchInterestLevel='MG' iARPoints='7' flATOS='7' txBookSummary='In this story, a lone burro creates friendships with a number of men in the Grand Canyon and helps to capture a murderer.'
+		 iWordCount='42328' iNumberQuestions='36' iQuizStatus='1' dtOriginalApprovalDate='2001-02-02T14:59:24.010000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='166686' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2001-02-02T14:59:24.010000000'/>
+	<z:row iQuizID='88622' iALSQuizNumber='13' iBookID='3105' vchBookType=' ' vchQuizType='AV' vchQuizTypeDesc='Vocabulary'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='The  ' vchBookTitle='Bronze Bow' vchAuthorFirstName='Elizabeth'
+		 vchAuthorMiddleName='George' vchAuthorLastName='Speare' vchLanguageCode='EN' vchLanguage='English' iFiction='1'
+		 vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='5' vchInterestLevel='MG' iARPoints='10'
+		 flATOS='10' txBookSummary='Eighteen-year-old Daniel, an Israeli, is consumed by hatred of the Romans who killed his father, until he learns from listening to Jesus that love is the answer.'
+		 iWordCount='68215' iNumberQuestions='15' iQuizStatus='1' dtOriginalApprovalDate='2002-08-02T13:30:36.390000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='188622' tiRecordStatus='1' vchCountry='US;CA' iSponsor='792'
+		 dtLastApprovalDate='2002-08-02T13:30:36.390000000'/>
+	<z:row iQuizID='66703' iALSQuizNumber='13' iBookID='3105' vchBookType=' ' vchQuizType='LS' vchQuizTypeDesc='Literacy Skills'
+		 tiShowPointsInAR='0' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='The  ' vchBookTitle='Bronze Bow' vchAuthorFirstName='Elizabeth'
+		 vchAuthorMiddleName='George' vchAuthorLastName='Speare' vchLanguageCode='EN' vchLanguage='English' iFiction='1'
+		 vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='5' vchInterestLevel='MG' iARPoints='10'
+		 flATOS='10' txBookSummary='Eighteen-year-old Daniel, an Israeli, is consumed by hatred of the Romans who killed his father, until he learns from listening to Jesus that love is the answer.'
+		 iWordCount='68215' iNumberQuestions='36' iQuizStatus='1' dtOriginalApprovalDate='2001-02-23T15:21:35.400000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='166703' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2001-02-23T15:21:35.400000000'/>
+	<z:row iQuizID='18648' iALSQuizNumber='13' iBookID='3105' vchBookType=' ' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='The  ' vchBookTitle='Bronze Bow' vchAuthorFirstName='Elizabeth'
+		 vchAuthorMiddleName='George' vchAuthorLastName='Speare' vchLanguageCode='EN' vchLanguage='English' iFiction='1'
+		 vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='5' vchInterestLevel='MG' iARPoints='10'
+		 flATOS='10' txBookSummary='Eighteen-year-old Daniel, an Israeli, is consumed by hatred of the Romans who killed his father, until he learns from listening to Jesus that love is the answer.'
+		 iWordCount='68215' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='1996-04-10T00:00:00' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='118648' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='2002-03-13T15:02:55.950000000'/>
+	<z:row iQuizID='83657' iALSQuizNumber='14' iBookID='3106' vchBookType=' ' vchQuizType='AV' vchQuizTypeDesc='Vocabulary'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Caddie Woodlawn'
+		 vchAuthorFirstName='Carol' vchAuthorMiddleName='Ryrie' vchAuthorLastName='Brink' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='6' vchInterestLevel='MG'
+		 iARPoints='8' flATOS='8' txBookSummary='A spirited pioneer girl relates her adventures on the Wisconsin frontier.'
+		 iWordCount='51659' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='2002-01-29T15:12:26.170000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='183657' tiRecordStatus='1' vchCountry='US;CA' iSponsor='792'
+		 dtLastApprovalDate='2002-04-02T13:17:49.300000000'/>
+	<z:row iQuizID='16' iALSQuizNumber='14' iBookID='3106' vchBookType=' ' vchQuizType='LS' vchQuizTypeDesc='Literacy Skills'
+		 tiShowPointsInAR='0' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Caddie Woodlawn'
+		 vchAuthorFirstName='Carol' vchAuthorMiddleName='Ryrie' vchAuthorLastName='Brink' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='6' vchInterestLevel='MG'
+		 iARPoints='8' flATOS='8' txBookSummary='A spirited pioneer girl relates her adventures on the Wisconsin frontier.'
+		 iWordCount='51659' iNumberQuestions='36' iQuizStatus='1' dtOriginalApprovalDate='1999-05-13T12:10:30.800000000'
+		 vchDifficultyLevel=' ' vchQuizISBN=' ' iContentID='100016' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='1999-05-13T12:10:30.800000000'/>
+	<z:row iQuizID='18649' iALSQuizNumber='14' iBookID='3106' vchBookType=' ' vchQuizType='RP' vchQuizTypeDesc='Reading Practice'
+		 tiShowPointsInAR='1' tiAudioEnabled='0' tiAudioStatus='0' chTitlePrefix='     ' vchBookTitle='Caddie Woodlawn'
+		 vchAuthorFirstName='Carol' vchAuthorMiddleName='Ryrie' vchAuthorLastName='Brink' vchLanguageCode='EN' vchLanguage='English'
+		 iFiction='1' vchFiction='Fiction' tiOutOfPrint='0' vchOutOfPrint='In Print' iReadingLevel='6' vchInterestLevel='MG'
+		 iARPoints='8' flATOS='8' txBookSummary='A spirited pioneer girl relates her adventures on the Wisconsin frontier.'
+		 iWordCount='51659' iNumberQuestions='10' iQuizStatus='1' dtOriginalApprovalDate='1996-02-29T00:00:00' vchDifficultyLevel=' '
+		 vchQuizISBN=' ' iContentID='118649' tiRecordStatus='1' vchCountry='US;CA' dtLastApprovalDate='1999-09-28T00:00:00'/>
+</rs:data>
+</xml>
